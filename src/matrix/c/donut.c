@@ -1,15 +1,23 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
+
+#include "render.h"
+#include "donut.h"
 
 /**
  * Programs entry point and that does all the logic.
  */
-void main() {
+int main() {
     display_torus();
     return EXIT_SUCCESS;
 }
 
-void display_torus() {}
+void display_torus() {
+    render_frame(1, 1);
+}
 
-void render_frame(const float x_rotation_rad, const float z_rotation_rad) {}
+void render_frame(const float x_rotation_rad, const float z_rotation_rad) {
+    clear_terminal();
+    printf("hey\n");
+
+}
