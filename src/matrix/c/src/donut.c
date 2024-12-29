@@ -4,14 +4,6 @@
 #include "render.h"
 #include "donut.h"
 
-/**
- * Programs entry point and that does all the logic.
- */
-int main() {
-    display_torus();
-    return EXIT_SUCCESS;
-}
-
 void display_torus() {
     render_frame(1, 1);
 }
