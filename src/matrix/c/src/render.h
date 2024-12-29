@@ -12,7 +12,18 @@
 
 #define clear_terminal()    printf(CLEAR_STRING);
 
+/**
+ * Constructor that contains information about the terminal window size.
+ * 
+ * @param width     Width of terminal window.
+ * @param height    Height of terminal window.
+ */
+typedef struct win_size {
+    const size_t width;     // Width of terminal window.
+    const size_t height;    // Height of terminal window.
+} win_size;
+
 //* Function prototypes
-// struct winsize get_win_size()
+win_size get_win_size();
 
 #endif //RENDER_H_
