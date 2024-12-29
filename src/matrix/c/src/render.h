@@ -26,8 +26,33 @@ typedef struct win_size {
 /**
  * Returns a win_size struct with information about the terminal window size.
  * 
- * @returns structure with terminal window size
+ * @return structure with terminal window size
  */
 win_size get_win_size();
 
-#endif //RENDER_H_
+/**
+ * Initializes framebuffer for printing characters on the screen.
+ * 
+ * @param window    win_size structure with the size of the window that the program
+ *                  will be displayed on
+ * @return 2D char framebuffer initialized as empty
+ */
+char ** initialize_framebuffer(const win_size window);
+
+/**
+ * Deallocates memory from framebuffer.
+ * 
+ * @param buffer    2D framebuffer to be deallocated
+ * @param window    measures of the buffer
+ */
+void free_framebuffer(char **buffer, const win_size window);
+
+/**
+ * Renders a frame based on the output framebuffer.
+ * 
+ * @param output    2D framebuffer to be rendered
+ * @param window    measure of the buffer and window
+ */
+void render_frame(char **output, const win_size window);
+
+#endif // !RENDER_H_
