@@ -1,6 +1,22 @@
 CC := gcc
 CFLAGS := -Wall
 
+# OS definition as CFLAGS
+# WIN32 : Windows
+# LINUX : Linux
+# OSX : MacOS
+ifeq ($(OS),Windows_NT)
+	CFLAGS += -D WIN32
+else
+	UNAME := $(shell uname -s)
+	ifeq ($(UNAME),Linux)
+		CFLAGS += -D LINUX
+	endif
+	ifeq ($(UNAME),Darwin)
+		CFLAGS += -D OSX
+	endif
+endif
+
 SRC_DIR := src
 OBJ_DIR := obj
 
