@@ -20,6 +20,7 @@ void display_torus();
  * @param x_rotation_rad degree of rotation of the torus/donut on the x axis in radians
  * @param y_rotation_rad degree of rotation of the torus/donut on the z axis in radians
  */
-void render_frame(const float x_rotation_rad, const float z_rotation_rad);
+// TODO: change this to calculate torus rotation
+// void calculate_rotation(const float x_rotation_rad, const float z_rotation_rad);
 
  #endif // !DONUT_H
