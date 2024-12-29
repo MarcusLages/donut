@@ -10,6 +10,8 @@ void display_torus() {
 
 void render_frame(const float x_rotation_rad, const float z_rotation_rad) {
     clear_terminal();
-    printf("hey\n");
-
+    // printf("hey\n");
+    
+    win_size window = get_win_size();
+    printf("(%zu, %zu)", window.width, window.height);
 }
