@@ -7,12 +7,14 @@
 
 win_size get_win_size() {
     #ifdef WIN32
-        CONSOLE_SCREEN_BUFFER_INFO csbi;
-        GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+        // Get screen information from windows kernel
+        CONSOLE_SCREEN_BUFFER_INFO terminal_buffer;
+        GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &terminal_buffer);
 
         return (win_size) {
-            .width = (size_t) csbi.srWindow.Right - csbi.srWindow.Left + 1,
-            .height = (size_t) csbi.srWindow.Bottom - csbi.srWindow.Top + 1
+            // Access the terminal screen limit coordinates
+            .width = (size_t) terminal_buffer.srWindow.Right - terminal_buffer.srWindow.Left + 1,
+            .height = (size_t) terminal_buffer.srWindow.Bottom - terminal_buffer.srWindow.Top + 1
         };
     #endif
 
