@@ -38,7 +38,7 @@ char **initialize_framebuffer(const win_size window) {
         }
 
         for (size_t j = 0; j < window.height; j++)
-            output[i][j] = EMPTY_PIXEL;  // TODO: initialize with spaces constant
+            output[i][j] = EMPTY_PIXEL;
     }
 
     return output;
