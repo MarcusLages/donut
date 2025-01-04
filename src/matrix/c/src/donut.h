@@ -25,4 +25,14 @@ void display_torus();
 void calculate_torus_in_rotation(char **output, const win_size window,
                         const float x_rotation_rad, const float z_rotation_rad);
 
+/**
+ * Function used to display a single frame of a plane at a specific rotation
+ * on the x and z axis.
+ * 
+ * @param x_rotation_rad degree of rotation of the torus/donut on the x axis in radians
+ * @param y_rotation_rad degree of rotation of the torus/donut on the z axis in radians
+ */
+void calculate_plane_in_rotation(char **output, const win_size window,
+                        const float x_rotation_rad, const float z_rotation_rad);
+
  #endif // !DONUT_H
