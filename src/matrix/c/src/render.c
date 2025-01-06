@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "render.h"
+#include <time.h>
 
 #ifdef WIN32
     #include <windows.h>
@@ -62,4 +63,12 @@ void render_frame(char **output, const win_size window) {
 
         if(j != window.height - 1) putchar('\n');
     }
+}
+
+void sleep_ms(const size_t milliseconds) {
+    struct timespec ts;
+    ts.tv_sec = milliseconds / 1000;
+    ts.tv_nsec = (milliseconds % 1000) * 1000000;
+    
+    nanosleep(&ts, NULL);
 }

@@ -56,4 +56,11 @@ void free_framebuffer(char **buffer, const win_size window);
  */
 void render_frame(char **output, const win_size window);
 
+/**
+ * Sleeps the main thread for the given amount of milliseconds.
+ * 
+ * @param milliseconds amount of milliseconds the thread should wait
+ */
+void sleep_ms(const size_t milliseconds);
+
 #endif // !RENDER_H_
