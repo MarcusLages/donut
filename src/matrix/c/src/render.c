@@ -54,7 +54,7 @@ void free_framebuffer(char **buffer, const win_size window) {
 }
 
 void render_frame(char **output, const win_size window) {
-    clear_terminal();
+    // clear_terminal();
     
     for(size_t j = 0; j < window.height; j++) {
         for(size_t i = 0; i < window.width; i++) 
