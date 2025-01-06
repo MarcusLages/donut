@@ -7,6 +7,8 @@
 #include "render.h"
 #include "donut.h"
 
+// TODO: think on how to use signal.h to change the screen buffer when the terminal resizes.
+// TODO: animation on terminal in c
 void display_torus() {
     win_size window = get_win_size();
     char **output = initialize_framebuffer(window);
@@ -26,7 +28,7 @@ void calculate_torus_in_rotation(char **output, const win_size window,
 
 void calculate_plane_in_rotation(char **output, const win_size window,
                                 const float x_rotation_rad, const float z_rotation_rad) {
-
+    // TODO: Might move all these constants out of the functions into a header file
     const float min_depth = 5;
     const float window_ratio = 0.65f;     // Displayable window to terminal ratio
     const float max_plane_rotation_rad = M_PI_2; //  π/2 or 45º
