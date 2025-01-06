@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <math.h>   // TODO: change everything to double
 
 #include "render.h"
@@ -14,8 +15,16 @@ void display_torus() {
     char **output = initialize_framebuffer(window);
 
     // calculate_torus_in_rotation(output, window, 0.5, 0.5);
-    calculate_plane_in_rotation(output, window, 0.0, M_PI/4);
-    render_frame(output, window);
+    float rotation_rad = 0.0f;
+    while(true) {
+        calculate_plane_in_rotation(output, window, rotation_rad, rotation_rad);
+        render_frame(output, window);
+
+        rotation_rad += 0.1f;
+        if(rotation_rad >= 2*M_PI) rotation_rad -= 2*M_PI;
+
+        sleep_ms(1000.0f / 5.0f); // TODO: add MACROS and consts instead of magic numbers
+    }
 
     free_framebuffer(output, window);
 }
