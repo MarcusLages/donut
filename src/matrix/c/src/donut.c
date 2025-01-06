@@ -59,7 +59,8 @@ void calculate_plane_in_rotation(char **output, const win_size window,
             
             // Only writes character to buffer if it can be printed on the screen (if it's in boundaries
             // of the buffer)
-            if(x_projection >= 0 && y_projection >= 0)
+            if(x_projection >= 0 && x_projection < window.width &&
+               y_projection >= 0 && y_projection < window.height)
                 output[x_projection][y_projection] = '*';
         }    
     }
