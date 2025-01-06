@@ -8,7 +8,7 @@
 #define FONT_COLOUR_DEFAULT "\x1B[0m"                   // Default terminal font colour
 #define FONT_COLOUR_GREEN   "\x1B[1;32m"                // Green terminal font colour
 #define CLEAR_STRING        "\033[H\033[2J\033[3J"      // String used to clear terminal
-#define EMPTY_PIXEL         '#'
+#define EMPTY_PIXEL         ' '
 
 #define clear_terminal()    printf(CLEAR_STRING);       // Function to clear the terminal
 
