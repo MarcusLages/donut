@@ -42,11 +42,7 @@ void calculate_plane_in_rotation(char **output, const win_size window,
     const float window_ratio = 0.65f;     // Displayable window to terminal ratio
     const float max_plane_rotation_rad = M_PI_2; //  π/2 or 45º
     
-    // Formula used to find the projection ratio from the real object to the screen.
-    // This formula uses the fact that a plane rotated 45deg to any size will produce the max projection
-    // of the plane on the x and y axis. This max length is then projected to fit exactly
-    // half the screen height.
-    const float projection_ratio = (min_depth * window_ratio * window.height) / (2 * PLANE_SIZE * sin(max_plane_rotation_rad));
+    const float projection_ratio = calculate_plane_projection_ratio(min_depth, window_ratio, max_plane_rotation_rad, window);
 
     for(float i = -PLANE_SIZE; i < PLANE_SIZE ; i += SPACE_GAP) {
         for(float j = -PLANE_SIZE; j < PLANE_SIZE; j += SPACE_GAP) {
@@ -69,6 +65,15 @@ void calculate_plane_in_rotation(char **output, const win_size window,
                 output[x_projection][y_projection] = '*';
         }    
     }
+}
+
+float calculate_plane_projection_ratio(const float min_depth, const float window_ratio, const float max_plane_rotation_rad,
+                                 const win_size window) {
+    // Formula used to find the projection ratio from the real object to the screen.
+    // This formula uses the fact that a plane rotated 45deg to any size will produce the max projection
+    // of the plane on the x and y axis. This max length is then projected to fit into a space related to
+    // the window_ratio.
+    return (min_depth * window_ratio * window.height) / (2 * PLANE_SIZE * sin(max_plane_rotation_rad));
 }
 
 void matrix_rotation(const float i, const float j, const float k,
