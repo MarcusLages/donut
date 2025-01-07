@@ -39,4 +39,8 @@ void calculate_torus_in_rotation(char **output, const win_size window,
 void calculate_plane_in_rotation(char **output, const win_size window,
                         const float x_rotation_rad, const float z_rotation_rad);
 
+void matrix_rotation(const float i, const float j, const float k,
+                     const float x_rotation_rad, const float z_rotation_rad,
+                     float *x_rotated, float *y_rotated, float *z_rotated);
+
  #endif // !DONUT_H
