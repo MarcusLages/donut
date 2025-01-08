@@ -3,6 +3,7 @@
 
 #define _USE_MATH_DEFINES   // For using PI
 
+#include <math.h>
 #include "terminal.h"
 
 //* Math macros/constants
@@ -10,6 +11,7 @@
 #define PLANE_SIZE                  1
 #define SPACE_GAP                   0.02
 #define ROTATION_STEP_RAD           0.1
+#define MAX_PLANE_ROTATION_RAD      M_PI_2  //  π/2 or 45º
 
 //* Function Prototypes
 /**
@@ -27,8 +29,15 @@ void display_plane();
 void calculate_plane_in_rotation(char **output, const win_size window,
                         const float x_rotation_rad, const float z_rotation_rad);
 
-// TODO: document it
-float calculate_plane_projection_ratio(const float min_depth, const float window_ratio, const float max_plane_rotation_rad,
-            const win_size window);
+/**
+ * Calculate the projection ratio of a plane in the available screen.
+ * 
+ * @param min_depth     Closest possible depth that an object can be displayed on the screen
+ *                      (the larger, the further away an object looks)
+ * @param window_ratio  Displayable window to terminal ratio (the closest to one, the closest
+ *                      an object appears)
+ * @param window        Structure containing the size of the window
+ */
+float calculate_plane_projection_ratio(const float min_depth, const float window_ratio, const win_size window);
 
 #endif //PLANE_H_

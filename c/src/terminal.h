@@ -41,8 +41,11 @@ win_size get_win_size();
  */
 void sleep_ms(const size_t milliseconds);
 
-// TODO: document it
-// TODO: isolate terminal handling functions
+/**
+ * Handles interruption of the program.
+ * 
+ * @param signal_code Interruption signal code (@unused)
+ */
 void handle_interruption(const int signal_code);
 
 #endif //TERMINAL_H_
