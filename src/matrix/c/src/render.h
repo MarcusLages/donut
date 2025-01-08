@@ -19,6 +19,16 @@
 #define show_cursor()           printf(SHOW_CURSOR_STRING);
 
 #define EMPTY_PIXEL             ' '
+#define ANIMATION_FPS           40
+
+/**
+ * Macro that calculates the amount of time a thread should sleep to
+ * provide the given fps.
+ * 
+ * @param fps   FPS wanted
+ * @return      Thread sleep delay in milliseconds
+ */
+#define fps_to_ms(fps)          SECOND_MS / fps
 
 /**
  * Constructor that contains information about the terminal window size.

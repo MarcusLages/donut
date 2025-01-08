@@ -26,7 +26,7 @@ void display_torus() {
         rotation_rad += ROTATION_STEP_RAD;
         if(rotation_rad >= FULL_ROTATION) rotation_rad -= FULL_ROTATION;
 
-        sleep_ms(1000.0f / 20.0f); // TODO: add MACROS and consts instead of magic numbers
+        sleep_ms(fps_to_ms(ANIMATION_FPS)); // TODO: add MACROS and consts instead of magic numbers
     }
 
     free_framebuffer(output, window);
