@@ -1,8 +1,6 @@
 #ifndef RENDER_H_
 #define RENDER_H_
 
-#include <stdio.h>
-#include <unistd.h>
 #include "terminal.h"
 
 //* Rendering macros/constants

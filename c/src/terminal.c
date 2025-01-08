@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <time.h>
+
 #include "terminal.h"
 
 #ifdef WIN32

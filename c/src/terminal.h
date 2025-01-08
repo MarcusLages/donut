@@ -2,7 +2,6 @@
 #define TERMINAL_H_
 
 #include <stdio.h>
-#include <unistd.h>
 
 //* Macros and constants
 // Strings that change the behaviour of the terminal when printed.
