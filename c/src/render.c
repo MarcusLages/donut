@@ -3,27 +3,6 @@
 
 #include "render.h"
 
-#ifdef WIN32
-    #include <windows.h>
-#endif
-
-win_size get_win_size() {
-    #ifdef WIN32
-        // Get screen information from windows kernel
-        CONSOLE_SCREEN_BUFFER_INFO terminal_buffer;
-        GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &terminal_buffer);
-
-        return (win_size) {
-            // Access the terminal screen limit coordinates
-            .width = (size_t) terminal_buffer.srWindow.Right - terminal_buffer.srWindow.Left + 1,
-            .height = (size_t) terminal_buffer.srWindow.Bottom - terminal_buffer.srWindow.Top + 1
-        };
-    #endif
-
-    return (win_size) {0, 0};
-}
-
-
 char **initialize_framebuffer(const win_size window) {
     char **output = malloc(window.width * sizeof(char *));
     if(output == NULL) {
@@ -58,7 +37,7 @@ void free_framebuffer(char **buffer, const win_size window) {
 }
 
 void render_frame(char **output, const win_size window) {
-    // TODO: Instead of cleaning the terminal, put the cursor in the beginning of the terminal
+    // TODO: Instead of cleaning the terminal, just put the cursor in the beginning of the terminal and flush stdout
     clear_terminal();
     
     // TODO: Instead of writing char by char, print the string
@@ -70,17 +49,4 @@ void render_frame(char **output, const win_size window) {
 
         fflush(stdout); // Flush the stdout so it immediatelly prints the frame
     }
-}
-
-void sleep_ms(const size_t milliseconds) {
-    struct timespec ts;
-    ts.tv_sec = milliseconds / 1000;
-    ts.tv_nsec = (milliseconds % 1000) * 1000000;
-
-    nanosleep(&ts, NULL);
-}
-
-void handle_interruption(const int signal_code) {
-    show_cursor();
-    exit(EXIT_SUCCESS);
 }
