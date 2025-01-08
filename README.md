@@ -14,16 +14,12 @@ Code is based on the post made by [a1k0n](https://www.a1k0n.net/2011/07/20/donut
 
 ## Build
 ### C terminal program
-1. Go into the `c` directory in the terminal:
-```
+1. Go into the `c` directory in the terminal.
+2. Run the Makefile.
+3. Run the executable.
+```shell
 cd c
-```
-2. Run the Makefile:
-```
 make
-```
-3. Run the executable:
-```
 donut
 ```
 
