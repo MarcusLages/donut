@@ -4,6 +4,8 @@
 #include "render.h"
 
 //* Math macros/constants
+#define FULL_ROTATION               2*M_PI
+
 #define CIRCUMFERENCE_SLICE_SPACING 0.07  // Gap between angle slices inside the circumference
 #define CIRCUMFERENCE_GAP_SPACING   0.02  // Gap between circumferences that generate a torus
 #define TORUS_CYLINDER_RADIUS       1
@@ -11,6 +13,7 @@
 
 #define PLANE_SIZE                  1
 #define SPACE_GAP                   0.02
+#define ROTATION_STEP_RAD           0.1
 
  //* Function Prototypes
  

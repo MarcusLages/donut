@@ -16,17 +16,21 @@ void display_torus() {
 
     // calculate_torus_in_rotation(output, window, 0.5, 0.5);
     float rotation_rad = 0.0f;
+
+    hide_cursor();
+
     while(true) {
         calculate_plane_in_rotation(output, window, rotation_rad, rotation_rad);
         render_frame(output, window);
 
-        rotation_rad += 0.1f;
-        if(rotation_rad >= 2*M_PI) rotation_rad -= 2*M_PI;
+        rotation_rad += ROTATION_STEP_RAD;
+        if(rotation_rad >= FULL_ROTATION) rotation_rad -= FULL_ROTATION;
 
         sleep_ms(1000.0f / 20.0f); // TODO: add MACROS and consts instead of magic numbers
     }
 
     free_framebuffer(output, window);
+    show_cursor();
 }
 
 void calculate_torus_in_rotation(char **output, const win_size window,

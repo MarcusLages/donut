@@ -5,12 +5,20 @@
 #include <unistd.h>
 
 //* Rendering macros/constants
-#define FONT_COLOUR_DEFAULT "\x1B[0m"                   // Default terminal font colour
-#define FONT_COLOUR_GREEN   "\x1B[1;32m"                // Green terminal font colour
-#define CLEAR_STRING        "\033[H\033[2J\033[3J"      // String used to clear terminal
-#define EMPTY_PIXEL         ' '
+#define SECOND_MS           1000.0
 
-#define clear_terminal()    printf(CLEAR_STRING);       // Function to clear the terminal
+// Strings that change the behaviour of the terminal when printed.
+#define FONT_COLOUR_DEFAULT     "\x1B[0m"
+#define FONT_COLOUR_GREEN       "\x1B[1;32m"
+#define CLEAR_TERMINAL_STRING   "\033[H\033[2J\033[3J"
+#define HIDE_CURSOR_STRING      "\033[?25l"
+#define SHOW_CURSOR_STRING      "\033[?25h"
+
+#define clear_terminal()        printf(CLEAR_TERMINAL_STRING);
+#define hide_cursor()           printf(HIDE_CURSOR_STRING);
+#define show_cursor()           printf(SHOW_CURSOR_STRING);
+
+#define EMPTY_PIXEL             ' '
 
 /**
  * Constructor that contains information about the terminal window size.
