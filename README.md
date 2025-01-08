@@ -14,9 +14,18 @@ Code is based on the post made by [a1k0n](https://www.a1k0n.net/2011/07/20/donut
 
 ## Build
 ### C terminal program
-1. Go into the `c` directory in the terminal with `cd c`
-2. Run the makefile with `make`
-3. Run the executable `donut`
+1. Go into the `c` directory in the terminal:
+```
+cd c
+```
+2. Run the Makefile:
+```
+make
+```
+3. Run the executable:
+```
+donut
+```
 
 ## References and Links
 - OneNote with all the math concepts used: [Donut Math Notebook](https://1drv.ms/o/c/8d41faf66157047f/EhQDVeGORbBKqGOD6cRC8scBiFTDcKaRes_5Q3RIGiz0ZA?e=fAhMGX) by [MarcusLages](https://github.com/MarcusLages)
