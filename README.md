@@ -16,7 +16,7 @@ Code is based on the post made by [a1k0n](https://www.a1k0n.net/2011/07/20/donut
 ### C terminal program
 1. Go into the `c` directory in the terminal.
 2. Run the Makefile.
-3. Run the executable.
+3. Run the executable (`donut`, `./donut` or `./donut` depending on your terminal).
 ```shell
 cd c
 make
