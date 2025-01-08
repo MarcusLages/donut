@@ -81,4 +81,8 @@ void render_frame(char **output, const win_size window);
  */
 void sleep_ms(const size_t milliseconds);
 
+// TODO: document it
+// TODO: isolate terminal handling functions
+void handle_interruption(const int signal_code);
+
 #endif // !RENDER_H_

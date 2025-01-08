@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <signal.h>
 #include <math.h>   // TODO: change everything to double
 
 #include "render.h"
@@ -15,6 +16,9 @@ void display_torus() {
     char **output = initialize_framebuffer(window);
     float rotation_rad = 0.0f;
 
+    // TODO: Cursor functions into one function.
+    // TODO: Add things so any key the user presses, closes the program.
+    signal(SIGINT, handle_interruption);
     hide_cursor();
 
     while(true) {

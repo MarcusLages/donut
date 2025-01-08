@@ -1,6 +1,7 @@
 #include <stdlib.h>
-#include "render.h"
 #include <time.h>
+
+#include "render.h"
 
 #ifdef WIN32
     #include <windows.h>
@@ -67,7 +68,7 @@ void render_frame(char **output, const win_size window) {
             output[i][j] = EMPTY_PIXEL; // Clean screen buffer after printing
         }
 
-        if(j != window.height - 1) putchar('\n');
+        fflush(stdout); // Flush the stdout so it immediatelly prints the frame
     }
 }
 
@@ -77,4 +78,9 @@ void sleep_ms(const size_t milliseconds) {
     ts.tv_nsec = (milliseconds % 1000) * 1000000;
 
     nanosleep(&ts, NULL);
+}
+
+void handle_interruption(const int signal_code) {
+    show_cursor();
+    exit(EXIT_SUCCESS);
 }
