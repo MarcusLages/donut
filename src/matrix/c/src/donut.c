@@ -11,10 +11,8 @@
 // TODO: think on how to use signal.h to change the screen buffer when the terminal resizes.
 // TODO: animation on terminal in c
 void display_torus() {
-    win_size window = get_win_size();
+    const win_size window = get_win_size();
     char **output = initialize_framebuffer(window);
-
-    // calculate_torus_in_rotation(output, window, 0.5, 0.5);
     float rotation_rad = 0.0f;
 
     hide_cursor();
@@ -43,7 +41,7 @@ void calculate_plane_in_rotation(char **output, const win_size window,
                                 const float x_rotation_rad, const float z_rotation_rad) {
     // TODO: Might move all these constants out of the functions into a header file
     const float min_depth = 5;
-    const float window_ratio = 0.65f;     // Displayable window to terminal ratio
+    const float window_ratio = 0.65f;            // Displayable window to terminal ratio
     const float max_plane_rotation_rad = M_PI_2; //  π/2 or 45º
     
     const float projection_ratio = calculate_plane_projection_ratio(min_depth, window_ratio, max_plane_rotation_rad, window);
@@ -71,6 +69,7 @@ void calculate_plane_in_rotation(char **output, const win_size window,
     }
 }
 
+// TODO: remove max_plane_rotation_rad from argument and use a macro for it instead
 float calculate_plane_projection_ratio(const float min_depth, const float window_ratio, const float max_plane_rotation_rad,
                                  const win_size window) {
     // Formula used to find the projection ratio from the real object to the screen.

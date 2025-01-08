@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 //* Rendering macros/constants
-#define SECOND_MS           1000.0
+#define SECOND_MS               1000.0
 
 // Strings that change the behaviour of the terminal when printed.
 #define FONT_COLOUR_DEFAULT     "\x1B[0m"

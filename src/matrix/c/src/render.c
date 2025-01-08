@@ -42,7 +42,6 @@ char **initialize_framebuffer(const win_size window) {
             output[i][j] = EMPTY_PIXEL;
     }
     
-    printf("\033[?25l"); // TODO: create MACRO hide_cursor
     return output;
 }
 
@@ -55,12 +54,13 @@ void free_framebuffer(char **buffer, const win_size window) {
     }
     
     // TODO: Create function to restore cursor using signal.h for cases when the user press ctrl+c
-    printf("\033[?25h"); // TODO: create MACRO show_cursor
 }
 
 void render_frame(char **output, const win_size window) {
+    // TODO: Instead of cleaning the terminal, put the cursor in the beginning of the terminal
     clear_terminal();
     
+    // TODO: Instead of writing char by char, print the string
     for(size_t j = 0; j < window.height; j++) {
         for(size_t i = 0; i < window.width; i++) {
             putchar(output[i][j]);
