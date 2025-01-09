@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "donut.h"
+#include "../include/donut.h"
 
 void display_torus() {
     

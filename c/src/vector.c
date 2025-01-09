@@ -1,6 +1,6 @@
 #include <math.h>   // TODO: change everything to double
 
-#include "vector.h"
+#include "../include/vector.h"
 
 void matrix_rotation(const float i, const float j, const float k,
                      const float x_rotation_rad, const float z_rotation_rad,

@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-#include "render.h"
+#include "../include/render.h"
 
 char **initialize_framebuffer(const win_size window) {
     char **output = malloc(window.width * sizeof(char *));

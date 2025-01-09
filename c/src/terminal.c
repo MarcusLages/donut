@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "terminal.h"
+#include "../include/terminal.h"
 
 #ifdef WIN32
     #include <windows.h>

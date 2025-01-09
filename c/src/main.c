@@ -1,6 +1,6 @@
 #include <stdlib.h>
-#include "donut.h"
-#include "plane.h"
+#include "../include/donut.h"
+#include "../include/plane.h"
 
 /**
  * Programs entry point and that does all the logic.

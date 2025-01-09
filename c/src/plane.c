@@ -3,9 +3,9 @@
 #include <stdbool.h>
 #include <signal.h>
 
-#include "vector.h"
-#include "render.h"
-#include "plane.h"
+#include "../include/vector.h"
+#include "../include/render.h"
+#include "../include/plane.h"
 
 // TODO: think on how to use signal.h to change the screen buffer when the terminal resizes.
 void display_plane() {
