@@ -29,9 +29,7 @@ void free_framebuffer(char **buffer, const win_size window) {
             free(buffer[i]);
 
         free(buffer);
-    }
-    
-    // TODO: Create function to restore cursor using signal.h for cases when the user press ctrl+c
+    }   
 }
 
 void render_frame(char **output, const win_size window) {

@@ -24,7 +24,6 @@ void display_plane() {
     }
 
     free_framebuffer(output, window);
-    show_cursor();
 }
 
 void calculate_plane_in_rotation(char **output, const win_size window,
@@ -33,18 +32,15 @@ void calculate_plane_in_rotation(char **output, const win_size window,
 
     for(float i = -PLANE_SIZE; i < PLANE_SIZE ; i += SPACE_GAP) {
         for(float j = -PLANE_SIZE; j < PLANE_SIZE; j += SPACE_GAP) {
-            // k to complete the ijk coordinate system.
             // Using 0 because we are using a plane, so we don't need depth
-            float k = 0;
-
-            float x_rotated, y_rotated, z_rotated;
-            matrix_rotation(i, j, k, x_rotation_rad, z_rotation_rad, &x_rotated, &y_rotated, &z_rotated);
+            Vector3 vector_init = {i, j, 0};
+            Vector3 vector_rotated = matrix_rotation(vector_init, x_rotation_rad, z_rotation_rad);
 
             // Moves to the center of the screen then calculates the projection of the shape (plane)
             // into the screen using the depth (z) considering the MIN_DEPTH as 0.
             // TODO: isolate into function
-            int x_projection = ((float) window.width/2) + (x_rotated * projection_ratio) / (z_rotated + MIN_DEPTH);
-            int y_projection = ((float) window.height/2) + (y_rotated * projection_ratio) / (z_rotated + MIN_DEPTH);
+            int x_projection = ((float) window.width/2) + (vector_rotated.x * projection_ratio) / (vector_rotated.z + MIN_DEPTH);
+            int y_projection = ((float) window.height/2) + (vector_rotated.y * projection_ratio) / (vector_rotated.z + MIN_DEPTH);
             
             // Only writes character to buffer if it can be printed on the screen (if it's in boundaries
             // of the buffer)
