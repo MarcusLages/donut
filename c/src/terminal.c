@@ -24,8 +24,8 @@ win_size get_win_size() {
 
 void sleep_ms(const size_t milliseconds) {
     struct timespec ts;
-    ts.tv_sec = milliseconds / 1000;
-    ts.tv_nsec = (milliseconds % 1000) * 1000000;
+    ts.tv_sec = milliseconds / SECOND_MS;
+    ts.tv_nsec = (milliseconds % (size_t) SECOND_MS) * SECOND_NS;
 
     nanosleep(&ts, NULL);
 }

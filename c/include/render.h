@@ -4,7 +4,6 @@
 #include "terminal.h"
 
 //* Rendering macros/constants
-#define SECOND_MS               1000.0
 #define ANIMATION_FPS           40
 #define EMPTY_PIXEL             ' '
 

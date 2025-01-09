@@ -4,6 +4,9 @@
 #include <stdio.h>
 
 //* Macros and constants
+#define SECOND_MS               1000.0
+#define SECOND_NS               1000000.0
+
 // Strings that change the behaviour of the terminal when printed.
 #define FONT_COLOUR_DEFAULT     "\x1B[0m"
 #define FONT_COLOUR_GREEN       "\x1B[1;32m"
