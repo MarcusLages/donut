@@ -51,4 +51,10 @@ void sleep_ms(const size_t milliseconds);
  */
 void handle_interruption(const int signal_code);
 
+/**
+ * Handle cursor handling on the program, such as hiding it on start
+ * and showing it back once the program finishes.
+ */
+void handle_cursor();
+
 #endif //TERMINAL_H_

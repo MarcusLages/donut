@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <signal.h>
 #include "../include/vector.h"
 #include "../include/render.h"
 #include "../include/plane.h"
@@ -12,10 +11,7 @@ void display_plane() {
     char **output = initialize_framebuffer(window);
     float rotation_rad = 0.0f;
 
-    // TODO: Cursor functions into one function.
-    // TODO: Add things so any key the user presses, closes the program.
-    signal(SIGINT, handle_interruption);
-    hide_cursor();
+    handle_cursor();
 
     while(true) {
         calculate_plane_in_rotation(output, window, rotation_rad, rotation_rad);
@@ -52,6 +48,7 @@ void calculate_plane_in_rotation(char **output, const win_size window,
             
             // Only writes character to buffer if it can be printed on the screen (if it's in boundaries
             // of the buffer)
+            // TODO: isolate into function
             if(x_projection >= 0 && x_projection < window.width &&
                y_projection >= 0 && y_projection < window.height)
                 output[x_projection][y_projection] = '*';

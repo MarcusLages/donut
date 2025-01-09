@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
+#include <signal.h>
 #include "../include/terminal.h"
 
 #ifdef WIN32
@@ -33,4 +34,10 @@ void sleep_ms(const size_t milliseconds) {
 void handle_interruption(const int signal_code) {
     show_cursor();
     exit(EXIT_SUCCESS);
+}
+
+// TODO: Add things so any key the user presses, closes the program.
+void handle_cursor() {
+    signal(SIGINT, handle_interruption);
+    hide_cursor();
 }
