@@ -33,6 +33,7 @@ void display_plane();
 void calculate_plane_in_rotation(char **output, const win_size window,
                         const float x_rotation_rad, const float z_rotation_rad);
 
+// TODO: explain projection ratio properly
 /**
  * Calculate the projection ratio of a plane in the available screen.
  * 

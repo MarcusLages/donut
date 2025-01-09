@@ -35,12 +35,10 @@ void calculate_plane_in_rotation(char **output, const win_size window,
             // Using 0 because we are using a plane, so we don't need depth
             Vector3 vector_init = {i, j, 0};
             Vector3 vector_rotated = matrix_rotation(vector_init, x_rotation_rad, z_rotation_rad);
+            Vector2 projection = project_to_window(vector_rotated, window, projection_ratio, MIN_DEPTH);
 
-            // Moves to the center of the screen then calculates the projection of the shape (plane)
-            // into the screen using the depth (z) considering the MIN_DEPTH as 0.
-            // TODO: isolate into function
-            int x_projection = ((float) window.width/2) + (vector_rotated.x * projection_ratio) / (vector_rotated.z + MIN_DEPTH);
-            int y_projection = ((float) window.height/2) + (vector_rotated.y * projection_ratio) / (vector_rotated.z + MIN_DEPTH);
+            size_t x_projection = (size_t) projection.x;
+            size_t y_projection = (size_t) projection.y;
             
             // Only writes character to buffer if it can be printed on the screen (if it's in boundaries
             // of the buffer)
