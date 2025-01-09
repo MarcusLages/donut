@@ -1,5 +1,4 @@
 #include <stdlib.h>
-
 #include "../include/render.h"
 
 char **initialize_framebuffer(const win_size window) {

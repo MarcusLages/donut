@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <signal.h>
-
 #include "../include/vector.h"
 #include "../include/render.h"
 #include "../include/plane.h"

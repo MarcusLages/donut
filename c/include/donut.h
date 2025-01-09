@@ -1,6 +1,9 @@
 #ifndef DONUT_H
 #define DONUT_H
 
+#define _USE_MATH_DEFINES   // For using PI
+
+#include <math.h>
 #include "render.h"
 
 //* Math macros/constants
